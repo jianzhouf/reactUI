@@ -1,0 +1,48 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size:  14px;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+.z-space {
+    margin-right: 1rem !important;
+}
+
+.z-button + .z-button{
+    margin-left: 1rem;
+}
+
+.doc{
+    &-container{
+        padding: 0  2rem;
+    }
+    &-nav{
+        position: fixed;
+        top: 0;
+        width: 16rem;
+    }
+    &-content{
+        padding-left: 18rem;
+    }
+}
+
+.demo-block{
+   
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+    &__source {
+        padding: 1.375rem;
+    }
+    &__code{
+        background-color: #fafafa;
+        border-top: 1px solid #eaeefb;
+        padding: 1.375rem;
+    }
+    &.demo-block{
+        margin-top: 2rem;
+    }
+}

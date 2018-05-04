@@ -1,0 +1,46 @@
+$font-size: 14px;
+
+
+//状态
+$primary-background-color: #409eff;
+$primary-border-color:  #409eff;
+
+$success-background-color: #67c23a;
+$success-border-color:  #67c23a;
+
+$warning-background-color: #e6a23c;
+$warning-border-color:  #e6a23c;
+
+$danger-background-color: #f56c6c;
+$danger-border-color:  #f56c6c;
+
+@mixin state($states){
+    @each $state in $states {
+        @if $state=="primary" {
+            $state-text-color: #fff !global;
+            $state-background-color: $primary-background-color !global;
+            $state-border-color: $primary-border-color !global;
+        }
+        @else if $state=="success"{
+            $state-text-color: #fff !global;
+            $state-background-color: $success-background-color !global;
+            $state-border-color: $success-border-color !global;
+        }
+        @else if $state=="warning"{
+            $state-text-color: #fff !global;
+            $state-background-color: $warning-background-color !global;
+            $state-border-color: $warning-border-color !global;
+        }
+        @else if $state=="danger"{
+            $state-text-color: #fff !global;
+            $state-background-color: $danger-background-color !global;
+            $state-border-color: $danger-border-color !global;
+        }
+        @else {
+            @warn "$state must be one of these: 'primary', 'success', 'warning', 'danger'. Current value is '#{$state}'.";
+        }
+        &-#{$state} {
+            @content;
+        }
+    }
+}
