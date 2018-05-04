@@ -1,3 +1,66 @@
+@import "../config.scss";
+
 .z-button {
-    
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+    border-color: #dcdfe6;
+    background-color: #fff;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    &:not([disabled]):hover, &:focus {
+        color: #409eff;
+        border-color: #c6e2ff;
+        background-color: #ecf5ff;
+    }
+    &:not([disabled]):active{
+        color: #3a8ee6;
+        border-color: #3a8ee6;
+        outline: none;
+    }
+    &[disabled]{
+        cursor: not-allowed;
+        opacity: .5; 
+    }
+
+    &-large{
+        padding: 16px 26px;
+        font-size: 16px;
+    }
+
+    &-small{
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    @include state(primary success warning danger){
+        color: $state-text-color;
+        border-color: $state-border-color;
+        background-color: $state-background-color;
+        &:not([disabled]):hover, &:not([disabled]):focus {
+            border-color: lighten($state-border-color,5%);
+            background-color: lighten($state-background-color,5%);
+            color:  $state-text-color;
+        }
+        &:not([disabled]):active {
+            border-color: darken($state-border-color,5%);
+            background-color: darken($state-background-color,5%);
+        }
+    }
+
 }
+

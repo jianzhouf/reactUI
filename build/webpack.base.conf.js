@@ -7,7 +7,6 @@ function resolve(dir) {
 }
 
 module.exports = {
-    // context: path.resolve(__dirname, '../'),
     entry: {
         app: './src/main.js'
     },
@@ -23,7 +22,8 @@ module.exports = {
     },
     plugins: [
         utils.HappyPack('Babel', ['babel-loader']),
-        utils.HappyPack('Sass', ['style-loader', 'css-loader', 'sass-loader'])
+        utils.HappyPack('Sass', ['css-loader', 'sass-loader']),
+        utils.HappyPack('Md', ['raw-loader'])
     ],
     module: {
         rules: [
@@ -33,10 +33,16 @@ module.exports = {
                 use: ['happypack/loader?id=Babel']
             },
             {
-                test: /\.scss$/,
+                test: /\.(css|scss)$/,
                 exclude: /node_modules/,
-                use: ['happypack/loader?id=Sass']
+                use: ['style-loader', 'happypack/loader?id=Sass']
+            },
+            {
+                test: /\.md$/,
+                exclude: /node_modules/,
+                use: ['happypack/loader?id=Md']
             }
         ]
     }
+
 }
