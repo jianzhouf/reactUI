@@ -12,7 +12,8 @@ render(<div className="doc-container">
             <React.Fragment>
                 <Route exact path="/" component={require('./docs/index').default}></Route>
                 <Route exact path="/docs/button" component={require('./docs/button').default} ></Route>
-                <Route exact path="/docs/input" component={require('./docs/input').default} ></Route>
+                <Route exact path="/docs/textBox" component={require('./docs/textBox').default} ></Route>
+                <Route exact path="/docs/form" component={require('./docs/form').default} ></Route>
             </React.Fragment>
         </HashRouter>
     </div>

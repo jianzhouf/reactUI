@@ -1,13 +1,13 @@
 
 
 import * as React from 'react'
-import Input from '@/components/input'
+import TextBox from '@/components/textBox'
 import marked from 'marked';
-export default class ButtonPage extends React.Component {
+export default class textboxPage extends React.Component {
 
     constructor(props) {
         super(props)
-        this.document = require('./input.md').match(/(```[^]+?```)/g)
+        this.document = require('./textBox.md').match(/(```[^]+?```)/g)
     }
 
     getHtml(document) {
@@ -25,9 +25,9 @@ export default class ButtonPage extends React.Component {
                 <h1>输入框</h1>
                 <div className="demo-block">
                     <div className="demo-block__source" >
-                        <Input className="z-space" value="内容" />
-                        <Input className="z-space" disabled value="内容" />
-                        <Input readOnly value="内容" />
+                        <TextBox className="z-space" />
+                        <TextBox className="z-space" disabled />
+                        <TextBox readOnly />
                     </div>
                     <div className="demo-block__code">
                     </div>
@@ -35,9 +35,9 @@ export default class ButtonPage extends React.Component {
 
                 <div className="demo-block">
                     <div className="demo-block__source" >
-                        <Input className="z-space" placeholder="请输入" />
-                        <Input className="z-space" disabled placeholder="请输入" />
-                        <Input readOnly placeholder="请输入" />
+                        <TextBox className="z-space" placeholder="请输入" />
+                        <TextBox className="z-space" disabled placeholder="请输入" />
+                        <TextBox readOnly placeholder="请输入" />
                     </div>
                     <div className="demo-block__code">
                     </div>
@@ -45,8 +45,8 @@ export default class ButtonPage extends React.Component {
 
                 <div className="demo-block">
                     <div className="demo-block__source" >
-                        <Input type="textarea" className="z-space" />
-                        <Input type="textarea" disabled />
+                        <TextBox type="textarea" className="z-space" />
+                        <TextBox type="textarea" disabled />
                     </div>
                     <div className="demo-block__code">
                     </div>
