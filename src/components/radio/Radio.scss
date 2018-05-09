@@ -1,0 +1,77 @@
+.z-radio {
+    cursor: pointer;
+    &__input{
+        white-space: nowrap;
+        outline: 0;
+        line-height: 1;
+        vertical-align: middle;
+    }
+    &__inner{
+        border: 1px solid #bfcbd9;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        &:after{
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #fff;
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -ms-transform: translate(-50%,-50%) scale(0);
+            transform: translate(-50%,-50%) scale(0);
+            transition: transform .15s cubic-bezier(.71,-.46,.88,.6)
+        }
+
+    }
+
+    &__input.is-checked   &__inner{
+        border-color: #20a0ff;
+        background: #20a0ff;
+        &:after{
+            transform: translate(-50%,-50%) scale(1);
+        }
+    }
+
+    &__input.is-disabled   &__inner{
+        background-color: #eef1f6;
+        border-color: #d1dbe5;
+        cursor: not-allowed;
+    }
+
+
+    &__original{
+        opacity: 0;
+        outline: 0;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+    }
+    &__label{
+        font-size: 14px;
+        padding-left: 5px;
+        &.is-disabled{
+            color:#999;
+            cursor: not-allowed;
+        }
+        &.is-checked {
+            color:#20a0ff;
+        }
+    }
+
+    & + & {
+        margin-left: 1rem;
+    }
+}
+
+.z-radio, .z-radio__inner, .z-radio__input {
+    position: relative;
+    display: inline-block;
+}

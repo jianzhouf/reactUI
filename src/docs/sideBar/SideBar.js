@@ -18,6 +18,7 @@ export default class SideBar extends React.Component {
                         <div className="nav-group">
                             <div className="nav-group__title">Form</div>
                             <ul className="nav-item">
+                                <li><a href="#/docs/radio">Radio单选</a></li>
                                 <li><a href="#/docs/textBox">TextBox输入框</a></li>
                                 <li><a href="#/docs/form">form表单</a></li>
                             </ul>
