@@ -10,7 +10,7 @@ export default class SideBar extends React.Component {
                         <div className="nav-group">
                             <div className="nav-group__title">Basic</div>
                             <ul className="nav-item">
-                                <li><a href="#/docs/button">Button按钮</a></li>
+                                <li><a href="#/button">Button按钮</a></li>
                             </ul>
                         </div>
                     </li>

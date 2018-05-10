@@ -8,7 +8,7 @@ function resolve(dir) {
 
 module.exports = {
     entry: {
-        app: './src/main.js'
+        app: './docs/app.js'
     },
     output: {
         path: path.resolve(__dirname, '../dist'),

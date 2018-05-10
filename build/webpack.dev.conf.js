@@ -6,6 +6,7 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const devWebpackConfig = merge(baseWebpackConfig, {
+    
     devServer: {
         port: 8000
     },

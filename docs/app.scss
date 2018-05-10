@@ -38,9 +38,18 @@ body, html {
         padding: 1.375rem;
     }
     &__code{
-        background-color: #fafafa;
+        color:#fff;
+        background-color: #000;
         border-top: 1px solid #eaeefb;
         padding: 1.375rem;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.5;
+        font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace !important;
+        
+        pre,span{
+            font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace !important;
+        }
     }
     &.demo-block{
         margin-top: 2rem;
