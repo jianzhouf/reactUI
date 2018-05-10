@@ -1,8 +1,11 @@
 import * as React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
-import Input from '../input'
-export default class TextBox extends Input {
+export default class TextBox extends React.Component {
+
+    static contextTypes = {
+        form: PropTypes.any
+    }
 
     constructor(props) {
         super(props)
@@ -12,8 +15,23 @@ export default class TextBox extends Input {
     }
 
     onChange(e) {
-        this.setValue(e.target.value)
+        this.setState({ value: e.target.value })
         this.props.onChange && this.props.onChange(e, this)
+    }
+
+    get value() {
+        return this.state.value
+    }
+
+    set value(value) {
+        this.setState({ value })
+    }
+
+    componentDidMount() {
+        const { form } = this.context
+        if (form) {
+            form.addFiled(this)
+        }
     }
 
     render() {

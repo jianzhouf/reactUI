@@ -1,12 +1,13 @@
 import * as React from 'react'
 import Input from '../input'
+import PropTypes from 'prop-types'
 
-export default class RadioGroup extends Input {
+export default class RadioGroup extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            value: ''
+            value: undefined
         }
     }
 
@@ -17,7 +18,9 @@ export default class RadioGroup extends Input {
     }
 
     onChange(e, s) {
-        this.setValue(s.value)
+        this.setState({
+            value: s.value
+        })
         this.props.onChange && this.props.onChange(e, s)
     }
 

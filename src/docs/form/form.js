@@ -27,7 +27,7 @@ export default class ButtonPage extends React.Component {
         console.log(this.refs.testForm.value)
     }
     componentDidMount() {
-        this.refs.testForm.value = { c: 11222, haha: 2, checkbox: ['222',"1"] }
+        this.refs.testForm.value = { c: 11222, haha: "2", checkbox: ['222',"1"] }
     }
 
 

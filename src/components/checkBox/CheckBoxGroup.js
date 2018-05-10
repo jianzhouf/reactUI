@@ -1,23 +1,21 @@
 import * as React from 'react'
-import Input from '../input'
 
-export default class CheckBoxGroup extends Input {
+export default class CheckBoxGroup extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            value: []
-        }
+        // this.state = {
+        //     value: []
+        // }
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        return {
-            value: nextProps.value || []
-        }
-    }
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     return {
+    //         value: nextProps.value || []
+    //     }
+    // }
 
     onChange(e, s) {
-        this.setValue(s.value)
         this.props.onChange && this.props.onChange(e, s)
     }
 
@@ -46,6 +44,7 @@ export default class CheckBoxGroup extends Input {
     }
 
     render() {
+        const { name } = this.props
         return <div ref={node => this.input = node}>
             {
                 React.Children.map(this.props.children, element => {
@@ -58,7 +57,7 @@ export default class CheckBoxGroup extends Input {
                         ...element.props,
                         ...{
                             onChange: this.onChange.bind(this),
-                            checkedValue: this.state.value
+                            name
                         }
                     }
 

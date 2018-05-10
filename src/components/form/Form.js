@@ -23,25 +23,55 @@ export default class Form extends React.Component {
         return this._fields
     }
 
+    data = {}
+
     get value() {
-        const obj = {}
+        const r = { ...this.data }
         for (const item of this._fields) {
-            if (item.value) {
-                obj[item.props.name] = item.value
+            if (item.props.name) {
+                if (item.props.disabled) {
+                    continue
+                }
+                const tagName = item._reactInternalFiber.type.name
+                if (tagName === 'Radio') {
+                    if (item.state.checked)
+                        r[item.props.name] = item.props.value
+                } else if (tagName === 'CheckBox') {
+                    if (item.state.checked) {
+                        if (Array.isArray(r[item.props.name])) {
+                            r[item.props.name].push(item.value)
+                        } else {
+                            r[item.props.name] = [item.value]
+                        }
+                    }
+                } else {
+                    r[item.props.name] = item.value
+                }
             }
+
         }
-        return obj
+        return r
     }
 
-    set value(v) {
+    set value(value) {
+        this.data = { ...value }
         for (const item of this._fields) {
-            if (v[item.props.name]) {
-                item.value = v[item.props.name]
+            if (item.props.name in value) {
+                delete this.data[item.props.name]
+                const tagName = item._reactInternalFiber.type.name
+                if (tagName === 'Radio' && item.props.value === value[item.props.name]) {
+                    item.setState({ checked: true })
+                } else if (tagName === 'CheckBox') {
+                    if (Array.isArray(value[item.props.name]) && value[item.props.name].indexOf(item.props.value) !== -1) {
+                        item.setState({ checked: true })
+                    }
+                } else {
+                    item.value = value[item.props.name]
+                }
             }
         }
     }
 
-    // data = {}
 
     render() {
         const {

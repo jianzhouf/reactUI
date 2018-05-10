@@ -1,16 +1,27 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import Input from '../input'
+import PropTypes from 'prop-types'
 
 function getChecked(props) {
     return props.checkedValue === props.value || Boolean(props.checked)
 }
-export default class Radio extends Input {
+export default class Radio extends React.Component {
+
+    static contextTypes = {
+        form: PropTypes.any
+    }
 
     constructor(props) {
         super(props)
         this.state = {
             checked: getChecked(props)
+        }
+    }
+    
+    componentDidMount() {
+        const { form } = this.context
+        if (form) {
+            form.addFiled(this)
         }
     }
 
@@ -28,6 +39,14 @@ export default class Radio extends Input {
             checked: e.target.checked
         })
         this.props.onChange && this.props.onChange(e, this)
+    }
+
+    get value() {
+        return this.state.value
+    }
+
+    set value(v){
+        
     }
 
     render() {

@@ -10,14 +10,11 @@ export default class Input extends React.Component {
 
     input //存储input DOM
 
-    shouldAddForm = true
-
-    exceptTags = ['CheckBox']
 
     componentDidMount() {
         const { form } = this.context
         if (form) {
-            this.shouldAddForm && form.addFiled(this)
+            form.addFiled(this)
         }
         if (this.props.value) {
             this.setValue(this.props.value)

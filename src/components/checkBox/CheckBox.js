@@ -1,11 +1,15 @@
 import * as React from 'react'
 import classnames from 'classnames'
-import Input from '../input'
+import PropTypes from 'prop-types'
 
 function getChecked(props) {
     return (props.checkedValue || []).indexOf(props.value) !== -1 || Boolean(props.checked)
 }
-export default class CheckBox extends Input {
+export default class CheckBox extends React.Component {
+
+    static contextTypes = {
+        form: PropTypes.any
+    }
 
     constructor(props) {
         super(props)
@@ -14,15 +18,18 @@ export default class CheckBox extends Input {
         }
     }
 
-    //不添加到 Form组件里
-    shouldAddForm = false
+    componentDidMount() {
+        const { form } = this.context
+        if (form) {
+            form.addFiled(this)
+        }
+    }
 
     // 更新状态
     static getDerivedStateFromProps(nextProps, prevState) {
         const checked = getChecked(nextProps)
         return {
-            checked,
-            value: nextProps.value
+            checked
         }
     }
 
