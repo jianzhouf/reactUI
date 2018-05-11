@@ -9,7 +9,7 @@ const ButtonDisableExampleSource = require('!raw-loader!../examples/ButtonDisabl
 import ButtonSizeExample from '../examples/ButtonSize'
 const ButtonSizeExampleSource = require('!raw-loader!../examples/ButtonSize')
 
-export default class ButtonPage extends React.Component {
+export default class Page extends React.Component {
 
     getHtml(document) {
         return hljs.highlightAuto(document).value;

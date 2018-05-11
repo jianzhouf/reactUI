@@ -14,13 +14,20 @@ export default class TextBox extends React.Component {
         }
     }
 
+    // 更新状态
+    static getDerivedStateFromProps(nextProps, prevState) {
+        return {
+            value: nextProps.value
+        }
+    }
+
     onChange(e) {
         this.setState({ value: e.target.value })
         this.props.onChange && this.props.onChange(e, this)
     }
 
     get value() {
-        return this.state.value
+        return this.input.value
     }
 
     set value(value) {
@@ -36,13 +43,15 @@ export default class TextBox extends React.Component {
 
     render() {
         const { className, type, onChange, value, ...otherProps } = this.props
-        return (
+        return (<div className={classnames('z-textbox', className)}>
             <input
+                type="text"
                 ref={node => this.input = node}
                 {...otherProps}
                 value={this.state.value}
                 onChange={this.onChange.bind(this)}
-                className={classnames('z-textbox', className)} />
-        )
+                className="z-textbox__inner"
+            />
+        </div>)      
     }
 }

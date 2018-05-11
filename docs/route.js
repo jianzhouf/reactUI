@@ -13,6 +13,16 @@ const route = [
         name: 'CheckBox 多选',
         url: '/checkbox',
         path: './pages/CheckBoxPage'
+    },
+    {
+        name: 'TextBox 输入框',
+        url: '/textbox',
+        path: './pages/TextBoxPage'
+    },
+    {
+        name: 'Select 输入框',
+        url: '/select',
+        path: './pages/SelectPage'
     }
 ]
 export default route

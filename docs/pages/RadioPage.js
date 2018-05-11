@@ -8,7 +8,7 @@ const RadioDisableExampleSource = require('!raw-loader!../examples/RadioDisable'
 
 import RadioGroupExample from '../examples/RadioGroup'
 const RadioGroupExampleSource = require('!raw-loader!../examples/RadioGroup')
-export default class ButtonPage extends React.Component {
+export default class Page extends React.Component {
 
     getHtml(document) {
         return hljs.highlightAuto(document).value;

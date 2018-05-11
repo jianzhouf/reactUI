@@ -6,7 +6,7 @@ const CheckBoxBasicExampleSource = require('!raw-loader!../examples/CheckBoxBasi
 import CheckBoxGroupExample from '../examples/CheckBoxGroup'
 const CheckBoxGroupExampleSource = require('!raw-loader!../examples/CheckBoxGroup')
 
-export default class ButtonPage extends React.Component {
+export default class Page extends React.Component {
 
     getHtml(document) {
         return hljs.highlightAuto(document).value;
