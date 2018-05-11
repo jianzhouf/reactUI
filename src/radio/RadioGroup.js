@@ -1,6 +1,6 @@
 import * as React from 'react'
-import Input from '../input'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 export default class RadioGroup extends React.Component {
 
@@ -11,12 +11,6 @@ export default class RadioGroup extends React.Component {
         }
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        return {
-            value: nextProps.value
-        }
-    }
-
     onChange(e, s) {
         this.setState({
             value: s.value
@@ -24,8 +18,18 @@ export default class RadioGroup extends React.Component {
         this.props.onChange && this.props.onChange(e, s)
     }
 
+    get value() {
+        return this.state.value
+    }
+
+    set value(value) {
+        this.setState({
+            value
+        })
+    }
+
     render() {
-        return <div ref={node => this.input = node}>
+        return <div className={classnames("z-radiogroup", this.props.className)} ref={node => this.input = node} >
             {
                 React.Children.map(this.props.children, element => {
                     const elementType = element.type.name;

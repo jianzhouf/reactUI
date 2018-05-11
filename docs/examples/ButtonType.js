@@ -4,11 +4,11 @@ import { Button } from '../../src'
 const Example = (props) => {
     return (
         <div>
-            <Button>primary</Button>
+            <Button>default</Button>
             <Button type="primary">primary</Button>
-            <Button type="warning">primary</Button>
-            <Button type="success">primary</Button>
-            <Button type="danger">primary</Button>
+            <Button type="warning">warning</Button>
+            <Button type="success">success</Button>
+            <Button type="danger">danger</Button>
         </div>
     )
 }

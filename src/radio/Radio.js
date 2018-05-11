@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
 function getChecked(props) {
-    return props.checkedValue === props.value || Boolean(props.checked)
+    return props.checkedValue !== undefined ? props.checkedValue === props.value : Boolean(props.checked)
 }
 export default class Radio extends React.Component {
 
@@ -17,7 +17,7 @@ export default class Radio extends React.Component {
             checked: getChecked(props)
         }
     }
-    
+
     componentDidMount() {
         const { form } = this.context
         if (form) {
@@ -45,8 +45,8 @@ export default class Radio extends React.Component {
         return this.state.value
     }
 
-    set value(v){
-        
+    set value(v) {
+
     }
 
     render() {

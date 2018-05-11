@@ -1,3 +1,5 @@
+@import "../config.scss";
+
 .z-radio {
     cursor: pointer;
     &__input{
@@ -29,8 +31,8 @@
     }
 
     &__input.is-checked   &__inner{
-        border-color: #20a0ff;
-        background: #20a0ff;
+        border-color: $primary-border-color;
+        background: $primary-background-color;
         &:after{
             transform: translate(-50%,-50%) scale(1);
         }
@@ -57,12 +59,12 @@
     &__label{
         font-size: 14px;
         padding-left: 5px;
+        &.is-checked {
+            color:$primary-background-color;
+        }
         &.is-disabled{
             color:#999;
             cursor: not-allowed;
-        }
-        &.is-checked {
-            color:#20a0ff;
         }
     }
 

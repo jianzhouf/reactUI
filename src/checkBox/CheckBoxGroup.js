@@ -1,51 +1,39 @@
 import * as React from 'react'
-
+import classnames from 'classnames'
 export default class CheckBoxGroup extends React.Component {
 
     constructor(props) {
         super(props)
-        // this.state = {
-        //     value: []
-        // }
+        this.state = {
+            options: this.props.value || []
+        }
     }
 
-    // static getDerivedStateFromProps(nextProps, prevState) {
-    //     return {
-    //         value: nextProps.value || []
-    //     }
-    // }
-
     onChange(e, s) {
+
+        if (e.target.checked) {
+            this.state.options.push(s.value)
+        } else {
+            this.state.options.splice(this.state.options.indexOf(s.value), 1)
+        }
+        this.setState()
         this.props.onChange && this.props.onChange(e, s)
     }
 
+
     get value() {
-        return this.state.value
+        return this.state.options
     }
 
     set value(arr) {
-        if (arr instanceof Array)
-            this.setState({
-                value: arr
-            })
-    }
-
-    setValue(value) {
-        const arr = this.state.value
-        const index = arr.indexOf(value)
-        if (index === -1) {
-            arr.push(value)
-        } else {
-            arr.splice(index, 1)
-        }
         this.setState({
-            value: arr
+            options: arr
         })
     }
 
     render() {
         const { name } = this.props
-        return <div ref={node => this.input = node}>
+        return <div className={classnames('z-checkboxgroup', this.props.className)} ref={node => this.input = node}>
             {
                 React.Children.map(this.props.children, element => {
                     const elementType = element.type.name;
@@ -57,6 +45,7 @@ export default class CheckBoxGroup extends React.Component {
                         ...element.props,
                         ...{
                             onChange: this.onChange.bind(this),
+                            checked: this.state.options.indexOf(element.props.value) > -1,
                             name
                         }
                     }

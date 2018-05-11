@@ -2,9 +2,7 @@ import * as React from 'react'
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
-function getChecked(props) {
-    return (props.checkedValue || []).indexOf(props.value) !== -1 || Boolean(props.checked)
-}
+
 export default class CheckBox extends React.Component {
 
     static contextTypes = {
@@ -14,7 +12,7 @@ export default class CheckBox extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            checked: getChecked(props)
+            checked: props.checked
         }
     }
 
@@ -27,9 +25,9 @@ export default class CheckBox extends React.Component {
 
     // 更新状态
     static getDerivedStateFromProps(nextProps, prevState) {
-        const checked = getChecked(nextProps)
         return {
-            checked
+            checked: nextProps.checked,
+            value: nextProps.value
         }
     }
 
@@ -38,6 +36,14 @@ export default class CheckBox extends React.Component {
             checked: e.target.checked
         })
         this.props.onChange && this.props.onChange(e, this)
+    }
+
+    get value() {
+        return this.state.value
+    }
+
+    set value(v) {
+
     }
 
     render() {
