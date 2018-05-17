@@ -23,6 +23,11 @@ const route = [
         name: 'Select 输入框',
         url: '/select',
         path: './pages/SelectPage'
+    },
+    {
+        name: 'Form 表单',
+        url: '/form',
+        path: './pages/FormPage'
     }
 ]
 export default route

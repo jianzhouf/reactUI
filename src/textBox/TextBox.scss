@@ -1,11 +1,11 @@
 @import "../config.scss";
 
 .z-textbox{
+    position: relative;
     box-sizing: border-box;
     display: inline-block;
     width: 180px;
     border-radius: 4px;
-    border: 1px solid #dcdfe6;
     &__inner{
         -webkit-appearance: none;
         background-color: #fff;
@@ -20,6 +20,7 @@
         outline: none;
         padding: 0 15px;
         height: 40px;
+        border: 1px solid #dcdfe6;
         transition: border-color .2s cubic-bezier(.645,.045,.355,1);
         width: 100%;
         &[disabled]{
@@ -33,14 +34,33 @@
             border-color: #e4e7ed;
         }
         &:focus {
-            border-color: #20a0ff;
+            border-color: $primary-border-color;
         }
     }
+   
     &__errormsg {
         color: #ff4949;
         font-size: 12px;
         line-height: 1;
         padding-top: 4px;
+    }
+    &-suffix &__inner {
+        padding-right: 30px;
+    }
+    &-suffix__icon{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 30px;
+        font-size: 20px;
+        height: 100%;
+        display: flex;
+        align-items:center;
+        justify-content:center;
+        .z-icon{
+            color: #ccc;
+            cursor: pointer;
+        }
     }
 }
 .z-textarea{

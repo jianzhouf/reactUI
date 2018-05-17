@@ -1,0 +1,23 @@
+.z-form {
+    &-input{
+        margin-bottom: 1rem;
+    }
+    &-h {
+        display: table;
+
+        .z-form-field {
+            display: table-row;
+        }
+
+        .z-form-label {
+            display: table-cell;
+            padding-right: 1rem;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .z-form-input + .z-form-label {
+            padding-left: 2rem;
+        }
+    }
+}

@@ -3,7 +3,8 @@ import * as React from 'react'
 import TextBoxBasicExample from '../examples/TextBoxBasic'
 const TextBoxBasicExampleSource = require('!raw-loader!../examples/TextBoxBasic')
 
-
+import TextBoxIconExample from '../examples/TextBoxIcon'
+const TextBoxIconExampleSource = require('!raw-loader!../examples/TextBoxIcon')
 
 export default class Page extends React.Component {
 
@@ -20,6 +21,15 @@ export default class Page extends React.Component {
                 </div>
                 <div className="demo-block__code">
                     <pre dangerouslySetInnerHTML={{ __html: this.getHtml(TextBoxBasicExampleSource) }}></pre>
+                </div>
+            </div>
+
+             <div className="demo-block">
+                <div className="demo-block__source" >
+                    <TextBoxIconExample></TextBoxIconExample>
+                </div>
+                <div className="demo-block__code">
+                    <pre dangerouslySetInnerHTML={{ __html: this.getHtml(TextBoxIconExampleSource) }}></pre>
                 </div>
             </div>
         </div>)

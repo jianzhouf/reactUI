@@ -5,6 +5,11 @@ import PropTypes from 'prop-types'
 
 export default class CheckBox extends React.Component {
 
+    static defaultProps = {
+        value: '',
+        checked: false
+    }
+
     static contextTypes = {
         form: PropTypes.any
     }

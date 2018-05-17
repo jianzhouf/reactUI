@@ -20,7 +20,7 @@ export default class Option extends React.Component {
     }
 
     componentDidMount() {
-        // this.parent().
+        this.parent().addOption(this)
     }
 
     getLabel() {
@@ -28,7 +28,7 @@ export default class Option extends React.Component {
     }
 
     getKey() {
-        return this.props.key
+        return this.props.value
     }
 
     onClick(e) {

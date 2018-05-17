@@ -3,6 +3,10 @@ import classnames from 'classnames'
 import PropTypes from 'prop-types'
 export default class TextBox extends React.Component {
 
+    static defaultProps = {
+        value: ''
+    }
+
     static contextTypes = {
         form: PropTypes.any
     }
@@ -42,8 +46,13 @@ export default class TextBox extends React.Component {
     }
 
     render() {
-        const { className, type, onChange, value, ...otherProps } = this.props
-        return (<div className={classnames('z-textbox', className)}>
+        const { className, type, onChange, value, prefixIcon, suffixIcon, onClick, ...otherProps } = this.props
+        return (<div onClick={onClick} className={classnames('z-textbox', className, prefixIcon && 'z-textbox-prefix', suffixIcon && 'z-textbox-suffix')}>
+            {
+                prefixIcon && <div className="z-textbox-prefix__icon">
+                    {prefixIcon}
+                </div>
+            }
             <input
                 type="text"
                 ref={node => this.input = node}
@@ -52,6 +61,11 @@ export default class TextBox extends React.Component {
                 onChange={this.onChange.bind(this)}
                 className="z-textbox__inner"
             />
-        </div>)      
+            {
+                suffixIcon && <div className="z-textbox-suffix__icon">
+                    {suffixIcon}
+                </div>
+            }
+        </div>)
     }
 }

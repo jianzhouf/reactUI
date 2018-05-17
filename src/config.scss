@@ -47,3 +47,17 @@ $danger-border-color:  #d43f3a;
         }
     }
 }
+
+@font-face {
+    font-family: 'iconfont';  /* project id 663143 */
+    src: url('//at.alicdn.com/t/font_663143_hifqevm00nbchaor.eot');
+    src: url('//at.alicdn.com/t/font_663143_hifqevm00nbchaor.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_663143_hifqevm00nbchaor.woff') format('woff'),
+    url('//at.alicdn.com/t/font_663143_hifqevm00nbchaor.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_663143_hifqevm00nbchaor.svg#iconfont') format('svg');
+}
+
+.z-icon {
+    font-family: 'iconfont';
+    font-style: normal;
+}

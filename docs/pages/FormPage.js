@@ -1,7 +1,10 @@
 import * as React from 'react'
 
-import SelectBasicExample from '../examples/SelectBasic'
-const SelectBasicExampleSource = require('!raw-loader!../examples/SelectBasic')
+import FormBasicExample from '../examples/FormBasic'
+const FormBasicExampleSource = require('!raw-loader!../examples/FormBasic')
+
+
+
 export default class Page extends React.Component {
 
     getHtml(document) {
@@ -10,15 +13,16 @@ export default class Page extends React.Component {
 
     render() {
         return (<div>
-            <h1>下拉框</h1>
+            <h1>表单</h1>
             <div className="demo-block">
                 <div className="demo-block__source" >
-                    <SelectBasicExample></SelectBasicExample>
+                    <FormBasicExample></FormBasicExample>
                 </div>
                 <div className="demo-block__code">
-                    <pre dangerouslySetInnerHTML={{ __html: this.getHtml(SelectBasicExampleSource) }}></pre>
+                    <pre dangerouslySetInnerHTML={{ __html: this.getHtml(FormBasicExampleSource) }}></pre>
                 </div>
             </div>
+           
         </div>)
     }
 }
